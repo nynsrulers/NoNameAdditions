@@ -1,0 +1,10 @@
+# NoNameAdditions by Aelithron
+# Additions to NoNameCore for those who lack sanity.
+
+# Prefix - Starts every message sent by the plugin.
+# Color codes supported here, guide: https://wiki.ess3.net/mc
+Prefix: "&8[&dNo Name Additions&8]"
+
+# Check for updates
+# This decides whether the plugin checks for updates at startup.
+CheckForUpdates: true
