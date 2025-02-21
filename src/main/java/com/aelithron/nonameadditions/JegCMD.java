@@ -9,6 +9,8 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Pig;
 import org.bukkit.entity.Player;
 
+import java.util.UUID;
+
 public class JegCMD implements CommandExecutor {
     private NoNameAdditions plugin;
     public JegCMD(NoNameAdditions plugin) {
