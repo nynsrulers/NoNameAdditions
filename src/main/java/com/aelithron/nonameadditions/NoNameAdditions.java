@@ -5,11 +5,13 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.block.Block;
+import org.bukkit.entity.Pig;
 import org.bukkit.entity.TNTPrimed;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -17,8 +19,11 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 import java.util.Objects;
+import java.util.UUID;
 
 public final class NoNameAdditions extends JavaPlugin implements Listener {
+    public boolean JegPassive = true;
+    public UUID JegUUID = null;
 
     @Override
     public void onEnable() {
@@ -27,6 +32,8 @@ public final class NoNameAdditions extends JavaPlugin implements Listener {
         saveDefaultConfig();
         // Events
         getServer().getPluginManager().registerEvents(this, this);
+        // Commands
+        getCommand("jeg").setExecutor(new JegCMD(this));
         // Some extra staging
         CoreTools.getInstance().setPlugin(this);
         // Update checker
@@ -113,5 +120,18 @@ public final class NoNameAdditions extends JavaPlugin implements Listener {
                 }
             }
         }
+    }
+
+    @EventHandler
+    public void onEntityHit(EntityDamageByEntityEvent e) {
+        if (e.getEntity().getUniqueId() != JegUUID) {
+            return;
+        }
+        if (JegPassive) {
+            return;
+        }
+        Pig jeg = (Pig) e.getEntity();
+        e.getDamager().getWorld().strikeLightning(e.getDamager().getLocation());
+        jeg.attack(e.getDamager());
     }
 }

@@ -8,3 +8,6 @@ depends:
   - Nexo
 description: Additions to NoNameCore for those who have no sanity
 website: https://github.com/aelithron/NoNameAdditions
+commands:
+  jeg:
+    description: Controls the server's overlord entity, Jeg.
