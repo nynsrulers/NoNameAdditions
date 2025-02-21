@@ -23,7 +23,7 @@ import java.util.UUID;
 
 public final class NoNameAdditions extends JavaPlugin implements Listener {
     public boolean JegPassive = true;
-    public UUID JegUUID = null;
+    public UUID JegUUID = UUID.fromString("00000000-0000-0000-0000-000000000000");
 
     @Override
     public void onEnable() {
