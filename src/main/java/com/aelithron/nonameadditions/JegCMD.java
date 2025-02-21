@@ -60,7 +60,7 @@ public class JegCMD implements CommandExecutor {
             }
             Pig jeg = (Pig) lookedUp;
             jeg.remove();
-            plugin.JegUUID = null;
+            plugin.JegUUID = UUID.fromString("00000000-0000-0000-0000-000000000000");
             sender.sendMessage(CoreTools.getInstance().getPrefix() + ChatColor.GREEN + "Jeg has been successfully vanished! (Despawned)");
             return true;
         }
