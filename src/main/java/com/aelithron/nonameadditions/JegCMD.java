@@ -43,11 +43,11 @@ public class JegCMD implements CommandExecutor {
             Pig jeg = player.getWorld().spawn(player.getLocation(), Pig.class);
             jeg.setCustomName(ChatColor.translateAlternateColorCodes('&', "&8[&3OVERLORD&8] &dJeg"));
             jeg.setCustomNameVisible(true);
-            jeg.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(9999);
+            jeg.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(2048.0);
             jeg.getAttribute(Attribute.GENERIC_ARMOR).setBaseValue(1000);
             jeg.getAttribute(Attribute.GENERIC_ARMOR_TOUGHNESS).setBaseValue(500);
             jeg.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED).setBaseValue(2.5);
-            jeg.getAttribute(Attribute.GENERIC_ATTACK_DAMAGE).setBaseValue(30);
+            jeg.setHealth(2048.0);
             plugin.JegUUID = jeg.getUniqueId();
             plugin.JegPassive = true;
             sender.sendMessage(CoreTools.getInstance().getPrefix() + ChatColor.GREEN + "Spawned Jeg! (Mode: Passive)");

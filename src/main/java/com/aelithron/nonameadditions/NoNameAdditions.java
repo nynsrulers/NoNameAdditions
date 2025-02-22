@@ -5,6 +5,8 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.block.Block;
+import org.bukkit.entity.Arrow;
+import org.bukkit.entity.Damageable;
 import org.bukkit.entity.Pig;
 import org.bukkit.entity.TNTPrimed;
 import org.bukkit.event.EventHandler;
@@ -12,11 +14,13 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.PigZapEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+import org.bukkit.projectiles.ProjectileSource;
 
 import java.util.Objects;
 import java.util.UUID;
@@ -131,7 +135,16 @@ public final class NoNameAdditions extends JavaPlugin implements Listener {
             return;
         }
         Pig jeg = (Pig) e.getEntity();
-        e.getDamager().getWorld().strikeLightning(e.getDamager().getLocation());
-        jeg.attack(e.getDamager());
+        if (e.getDamager() instanceof Damageable) {
+            e.getDamager().getWorld().strikeLightning(e.getDamager().getLocation());
+            ((Damageable) e.getDamager()).damage(80, jeg);
+        }
+    }
+
+    @EventHandler
+    public void onPigZap(PigZapEvent e) {
+        if (e.getEntity().getUniqueId() == JegUUID) {
+            e.setCancelled(true);
+        }
     }
 }
