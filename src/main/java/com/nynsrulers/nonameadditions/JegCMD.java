@@ -1,4 +1,4 @@
-package com.aelithron.nonameadditions;
+package com.nynsrulers.nonameadditions;
 
 import org.bukkit.ChatColor;
 import org.bukkit.attribute.Attribute;

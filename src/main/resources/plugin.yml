@@ -1,6 +1,6 @@
 name: NoNameAdditions
-version: '1.0.1'
-main: com.aelithron.nonameadditions.NoNameAdditions
+version: '${version}'
+main: com.nynsrulers.nonameadditions.NoNameAdditions
 api-version: '1.21'
 prefix: No Name Additions
 authors: [ Aelithron ]
@@ -11,3 +11,5 @@ website: https://github.com/aelithron/NoNameAdditions
 commands:
   jeg:
     description: Controls the server's overlord entity, Jeg.
+  nuke:
+    description: Launch a nuke at your location.
