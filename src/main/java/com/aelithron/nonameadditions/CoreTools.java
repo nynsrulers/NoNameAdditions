@@ -32,7 +32,7 @@ public class CoreTools {
         if (plugin.getConfig().getBoolean("CheckForUpdates")) {
             HttpRequest check = HttpRequest.newBuilder()
                     .GET()
-                    .uri(URI.create("https://api.github.com/repos/aelithron/NoNameAdditions/releases/latest"))
+                    .uri(URI.create("https://api.github.com/repos/nynsrulers/NoNameAdditions/releases/latest"))
                     .build();
             HttpResponse<String> response = null;
             try {
@@ -49,7 +49,7 @@ public class CoreTools {
                 plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, () -> {
                     plugin.getLogger().info("An update is available!");
                     plugin.getLogger().info("Your version: " + version + " - Latest version: " + latestVersion);
-                    plugin.getLogger().info("Please update at https://github.com/aelithron/NoNameAdditions/releases!");
+                    plugin.getLogger().info("Please update at https://github.com/nynsrulers/NoNameAdditions/releases!");
                 }, 60L);
             }
         }
