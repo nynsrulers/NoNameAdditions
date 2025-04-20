@@ -1,11 +1,10 @@
-package com.aelithron.nonameadditions;
+package com.nynsrulers.nonameadditions;
 
 import com.nexomc.nexo.api.NexoItems;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.block.Block;
-import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Damageable;
 import org.bukkit.entity.Pig;
 import org.bukkit.entity.TNTPrimed;
@@ -20,7 +19,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
-import org.bukkit.projectiles.ProjectileSource;
 
 import java.util.Objects;
 import java.util.UUID;
@@ -38,6 +36,7 @@ public final class NoNameAdditions extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(this, this);
         // Commands
         getCommand("jeg").setExecutor(new JegCMD(this));
+        getCommand("nuke").setExecutor(new NukeCMD(this));
         // Some extra staging
         CoreTools.getInstance().setPlugin(this);
         // Update checker
