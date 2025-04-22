@@ -53,7 +53,7 @@ public final class NoNameAdditions extends JavaPlugin implements Listener {
         if (!NexoItems.exists(e.getItemInHand())) {
             return;
         }
-        boolean fake = true; // TODO: implement 1% chance for real
+        boolean fake = Math.random() >= 0.01;
         if (Objects.equals(NexoItems.idFromItem(e.getItemInHand()), "small_fake_nuke")) {
             e.setCancelled(true);
             detonateNuke(new Nuke(1, 10, e.getBlock().getLocation(), fake));
